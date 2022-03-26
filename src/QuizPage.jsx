@@ -17,7 +17,7 @@ function QuizPage(params) {
             <Link to="signin" className='flex items-center bg-blue-700 p-3'><div className="text-xl  mr-2"><BiLogOut /></div> Logout</Link>
           </div>
         </div>
-        <div className='text-black place-self-center	  bg-red-500'>No Active Questions</div>
+        <div className='text-black place-self-center'>No Active Questions</div>
       </div>
     </>
   );
