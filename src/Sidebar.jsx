@@ -4,12 +4,13 @@ import { MdAssignment } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
 import { CgProfile } from 'react-icons/cg';
 import { BiLogOut } from 'react-icons/bi';
+import WebsiteTitle from './WebsiteTitle';
 function Sidebar() {
 	return (
 		<>
 			<div className="w-60 p-3 bg-slate-700 flex flex-col justify-between sticky top-0 h-screen">
 				<div>
-					<h1 className="p-2 text-4xl text-white font-extrabold">CODEYOGI</h1>
+					<h1 className="p-2 text-4xl text-white font-extrabold uppercase">{<WebsiteTitle />}</h1>
 					<SidebarContentLink
 						linkTo="quiz"
 						linkText="quiz"
