@@ -5,14 +5,14 @@ import Sidebar from './Sidebar';
 function MainLayout() {
 	return (
 		<>
-      <div className="flex  grow">
-			<div className="sticky top-0 bg-indigo-800">
-				<Sidebar />
+			<div className="flex  grow">
+				<div className="sticky top-0 bg-indigo-800">
+					<Sidebar />
+				</div>
+				<div className="px-12 py-16 grow bg-slate-100 ">
+					<Outlet />
+				</div>
 			</div>
-			<div className="p-4 grow bg-yellow-500 ">
-				<Outlet />
-			</div>
-      </div>
 		</>
 	);
 }

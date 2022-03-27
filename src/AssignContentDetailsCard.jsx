@@ -1,38 +1,48 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { TiTick } from "react-icons/ti"
 
 function AssignContentDetailsCard(params) {
 	const [
 		showYourSubmissionButton,
-		updateShowYourSubmissionButton
+		// updateShowYourSubmissionButton
 	] = React.useState(false);
 
-	let submmision;
-	let submit;
+	let submitButton;
+	let submitted;
+	let msg;
+	let dueDateClass = "mt-2 text-red-500";
+
 	if (params.submited) {
-		submmision = 're-submit';
-		submit = 'submitted';
+		submitButton = 're-submit';
+		submitted = <span className="text-green-500">Submitted</span>
+		msg = "(Submission will count as late now)";
 	} else {
-		submmision = 'submit';
+		submitButton = 'submit';
+		dueDateClass = "mt-2 text-slate-800";
+		submitted = <span className="text-red-500">Not-submitted</span>
 	}
+
 	return (
 		<>
-			<div className=" py-5 px-2 bg-white rounded-md shadow-md">
+			<div className=" px-4 py-2 bg-white rounded-md shadow-md">
 				<div className="flex justify-between items-center ">
-					<div className="flex flex-col p-3">
+					<div className="flex flex-col ">
 						<div className="font-semibold">
 							<span>#</span>
 							{params.id}
 							<span className="ml-2">{params.assignmentTitle}</span>
 						</div>
-						<span className="text-red-500">Due Date: {params.dueDate}</span>
+						<span className={dueDateClass}>Due Date: {params.dueDate}</span>
+						<span className="text-red-500 text-sm">{msg}</span>
 					</div>
-					<span className="text-green-500">{submit}</span>
+					<span className="text-green-500">{submitted}</span>
 				</div>
-				<div className="bg-red-100 flex justify-center items-center divide-x">
-					<button className="w-full p-4  bg-red-400">{submmision}</button>
+				<div className="bg-white mt-4 flex justify-center items-center divide-x">
+					
+					<button className="w-full p-4 flex justify-center items-center text-green-500 bg-white"><TiTick /> {submitButton}</button>
 					{showYourSubmissionButton && (
-						<button className="w-full p-4 ">{submmision}</button>
+						<button className="w-full p-4 ">{submitButton}</button>
 					)}
 				</div>
 			</div>

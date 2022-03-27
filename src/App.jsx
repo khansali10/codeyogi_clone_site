@@ -5,6 +5,7 @@ import AssignmentPage from './AssignmentPage';
 import MainLayout from "./MainLayout";
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AssignDetail from './AssignDetail';
 
 function App() {
 	return (
@@ -12,10 +13,12 @@ function App() {
 			<div className="flex items-stretch ">
 				<Routes>
 					<Route path="/" element={<MainLayout />}>
+						<Route path="/" element={<LecturePage />} />
 						<Route path="/assignment" element={<AssignmentPage />} />
+						<Route path="/assignment/assigndetail" element={<AssignDetail />} />
 						<Route path="/lecture" element={<LecturePage />} />
 					</Route>
-					<Route path="quiz" element={<QuizPage username="sachin" />} />
+					<Route path="/quiz" element={<QuizPage username="sachin" />} />
 				</Routes>
 			</div>
 		</>
