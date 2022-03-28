@@ -23,7 +23,7 @@ function AssignContentDetailsCard(params) {
 
 	return (
 		<>
-			<div className=" px-4 py-2 bg-white rounded-md shadow-md bg-red-500 mb-4">
+			<div className=" px-4 py-2 bg-white rounded-md shadow-md mb-4">
 				<div className="flex justify-between items-center ">
 					<div className="flex flex-col ">
 						<div className="font-semibold">
