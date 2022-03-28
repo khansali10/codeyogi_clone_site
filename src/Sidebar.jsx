@@ -37,7 +37,7 @@ function Sidebar() {
 							icon={<CgProfile />}
 						/>
 						<SidebarContentLink
-							linkTo="logout"
+							linkTo="/logout"
 							linkText="Logout"
 							icon={<BiLogOut />}
 						/>

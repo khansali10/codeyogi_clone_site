@@ -11,7 +11,6 @@ function AssignContentDetailsCard(params) {
 	let submitButton;
 	let submitted;
 	let msg;
-	let dueDateClass = "mt-2 text-red-500";
 
 	if (params.submited) {
 		submitButton = 're-submit';
@@ -19,13 +18,12 @@ function AssignContentDetailsCard(params) {
 		msg = "(Submission will count as late now)";
 	} else {
 		submitButton = 'submit';
-		dueDateClass = "mt-2 text-slate-800";
 		submitted = <span className="text-red-500">Not-submitted</span>
 	}
 
 	return (
 		<>
-			<div className=" px-4 py-2 bg-white rounded-md shadow-md">
+			<div className=" px-4 py-2 bg-white rounded-md shadow-md bg-red-500 mb-4">
 				<div className="flex justify-between items-center ">
 					<div className="flex flex-col ">
 						<div className="font-semibold">
@@ -33,7 +31,7 @@ function AssignContentDetailsCard(params) {
 							{params.id}
 							<span className="ml-2">{params.assignmentTitle}</span>
 						</div>
-						<span className={dueDateClass}>Due Date: {params.dueDate}</span>
+						<span className="mt-2 text-stale-500">Due Date: {params.dueDate}</span>
 						<span className="text-red-500 text-sm">{msg}</span>
 					</div>
 					<span className="text-green-500">{submitted}</span>
