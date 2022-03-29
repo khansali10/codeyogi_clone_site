@@ -14,7 +14,7 @@ function QuizPage(params) {
           </div>
           <div className='flex space-x-2'>
             <span className='p-3 flex items-center bg-blue-700'><div className="text-xl  mr-2"><MdOutlineWatchLater /></div>00:00</span>
-            <Link to="signin" className='flex items-center bg-blue-700 p-3'><div className="text-xl  mr-2"><BiLogOut /></div> Logout</Link>
+            <Link to="/logout" className='flex items-center bg-blue-700 p-3'><div className="text-xl  mr-2"><BiLogOut /></div> Logout</Link>
           </div>
         </div>
         <div className='text-black place-self-center'>No Active Questions</div>
