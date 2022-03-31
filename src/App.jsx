@@ -14,7 +14,7 @@ function App() {
       <div className="flex items-stretch ">
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route path="/" element={<AssignmentPage />} />
+            <Route path="/" element={<LecturePage />} />
             <Route path="/assignment" element={<AssignmentPage />} />
             <Route path="/assignment/assigndetail" element={<AssignDetail />} />
             <Route path="/lecture" element={<LecturePage />} />
