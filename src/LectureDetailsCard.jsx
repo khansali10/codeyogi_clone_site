@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiLinkExternal } from "react-icons/bi";
 function LectureDetailsCard(params) {
   return (
     <>
@@ -8,8 +9,7 @@ function LectureDetailsCard(params) {
           <div className="flex flex-col grow rounded-md">
             <div className="font-semibold">
               <span>Lecture</span>
-              <span className="ml-2">#</span>
-              {params.id}
+              <span className="ml-2">#{params.id}</span>
               <span className="text-slate-500 ml-3">({params.date})</span>
             </div>
             <span className="text-slate-400 text-sm">
@@ -21,11 +21,11 @@ function LectureDetailsCard(params) {
               </ul>
             </div>
             <div className="">
-              <a
-                href="https://google.com"
-                className=" flex justify-center p-5 text-slate-700 font-semibold "
-              >
-                Watch/Download Recording
+              <a href="https://google.com" className="">
+                <span className="flex items-center justify-center p-3 text-md font-semibold text-slate-500">
+                  <BiLinkExternal className="w-6 h-6 mr-2" />
+                  Watch/Download Recording
+                </span>
               </a>
             </div>
           </div>
