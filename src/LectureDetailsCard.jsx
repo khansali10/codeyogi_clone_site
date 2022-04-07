@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { BiLinkExternal } from "react-icons/bi";
 function LectureDetailsCard(params) {
   return (
     <>
-      <div className=" px-4 py-2 bg-white rounded-md shadow-md">
+      <div className=" px-4 py-2 bg-white rounded-md shadow-md w-full">
         <div className="flex justify-between items-center ">
           <div className="flex flex-col grow rounded-md">
             <div className="font-semibold">

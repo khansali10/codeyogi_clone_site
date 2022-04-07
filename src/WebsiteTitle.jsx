@@ -2,7 +2,7 @@ import React from "react";
 function WebsiteTitle(params) {
     return (
 
-        <h1>CodeYogi</h1>
+        <span>CodeYogi</span>
     );
 }
 export default WebsiteTitle;

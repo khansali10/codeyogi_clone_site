@@ -5,6 +5,7 @@ import QuizPage from "./QuizPage";
 import LecturePage from "./LecturePage";
 import AssignmentPage from "./AssignmentPage";
 import AssignDetail from "./AssignDetail";
+import UserPage from "./UserPage";
 import Profile from "./Profile";
 import Logout from "./Logout";
 import NotFound from "./NotFound";
@@ -16,8 +17,12 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<LecturePage />} />
             <Route path="/assignment" element={<AssignmentPage />} />
-            <Route path="/assignment/assigndetail" element={<AssignDetail />} />
+            <Route
+              path="/assignment/:id/assigndetail  "
+              element={<AssignDetail />}
+            />
             <Route path="/lecture" element={<LecturePage />} />
+            <Route path="/user" element={<UserPage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Logout />} />
           </Route>

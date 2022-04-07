@@ -39,16 +39,17 @@ function AssignContentList(params) {
   return (
     <>
       <ListLayout>
-        <Link to="/assignment/id:/assigndetail">
-          {data.map((item) => (
+        {data.map((item) => (
+          <Link to={`/assignment/${item.id}/assigndetail`}>
             <AssignContentDetailsCard
               assignmentTitle={item.name}
               id={item.id}
               submited={item.submited}
               dueDate={item.dueDate}
+              key={item.id}
             ></AssignContentDetailsCard>
-          ))}
-        </Link>
+          </Link>
+        ))}
       </ListLayout>
     </>
   );
