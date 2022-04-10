@@ -11,8 +11,8 @@ function PopupCardSubmit() {
   };
   return (
     <>
-      <div className="min-h-screen w-full flex justify-center items-center fixed top-0 left-0 p-12  bg-slate-300">
-        <div className=" w-1/2 h-60 bg-white opacity-100 rounded-lg px-3 py-4 bg-blend-lighten text-slate-500">
+      <div className="min-h-screen w-full flex justify-center items-center fixed top-0 left-0 p-12 backdrop-opacity-30 backdrop-invert  ">
+        <div className=" w-1/2 h-60 bg-white opacity-100 rounded-lg px-3 py-4  bg-blur text-slate-500">
           <div className="p-5 border-y border-y-slate-200  flex justify-between items-center">
             <span className="font-semibold">Submission Link</span>
             <input
