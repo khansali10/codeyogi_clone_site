@@ -1,6 +1,17 @@
-import React from "react";
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 function AssignDetail(props) {
+  let assignmentId = props.assignmentId;
+  const [assignmentDetails, updateAssignmentDetail] = useState([]);
+  useEffect(() => {
+    const wholeData = axios.get(
+      "https://api.codeyogi.io/assignments/:assignmentId",
+      { withCredentials: true }
+    );
+    wholeData.then((response) => {
+      updateAssignmentDetail(response.data);
+    });
+  }, []);
   return (
     <>
       <div className="px-4 bg-white rounded-md">
@@ -9,12 +20,12 @@ function AssignDetail(props) {
         </div>
         <div className="border-b border-b-slate-200 py-5 flex justify-between">
           <span className="font-semibold text-slate-500 text-sm">Title</span>
-          <span className="">{props.assignmentTitle}</span>
+          <span className="">{title}</span>
           <span></span>
         </div>
         <div className="border-b border-b-slate-200 py-5 flex justify-between">
           <span className="font-semibold text-slate-500 text-sm">Due Date</span>
-          <span></span>
+          <span>{due_date}</span>
           <span></span>
         </div>
         <div className="border-b border-b-slate-200 py-5 flex justify-between">
