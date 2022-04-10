@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import AssignContentDetailsCard from "./AssignContentDetailsCard";
-import { Link } from "react-router-dom";
 import ListLayout from "./ListLayout";
 import axios from "axios";
 function AssignContentList() {

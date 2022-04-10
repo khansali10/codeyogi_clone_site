@@ -14,6 +14,13 @@ function AssignContentDetailsCard(params) {
   const [isSubmitted, changeIsSubmitted] = useState(
     <span className="text-red-600 font-semibold">Not-Submitted</span>
   );
+  const [href, updateHref] = useState("");
+  useEffect(() => {
+    const href = submissions.map((item) => {
+      updateHref(item.submission_link);
+    });
+  }, []);
+  console.log(href);
   useEffect(() => {
     if (submissions.length === 0) {
       updateShowSubmissionButton(false);
@@ -49,6 +56,18 @@ function AssignContentDetailsCard(params) {
             <BsCheckCircle className="w-6 h-6 mr-2 inline" /> {submitButton}
           </button>
           {showSubmissionButton && (
+            <div className="text-center text-indigo-500 font-semibold mt-2 w-full bg-red-200 flex items-stratch">
+              <a
+                href={href}
+                target="_blank"
+                className="p-4 w-full bg-green-200"
+              >
+                <BiLinkExternal className="inline w-6 h-6 mr-2" />
+                Show Your Submission
+              </a>
+            </div>
+          )}
+          {/* {showSubmissionButton && (
             <a
               href={submissions.submission_link}
               className="w-full p-4 font-semibold text-indigo-500  text-center"
@@ -56,7 +75,7 @@ function AssignContentDetailsCard(params) {
               <BiLinkExternal className="w-6 h-6 mr-2 inline" /> Show Your
               Submission
             </a>
-          )}
+          )} */}
         </div>
       </div>
       <div>

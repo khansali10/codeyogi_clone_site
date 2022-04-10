@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import UserDetailCard from "./UserDetailCard";
 
 function UserDetail({ userDetail } = props) {
-  console.log(userDetail);
   return (
     <>
       <div className=" inline-block ml-2">
-        {userDetail.name.first}
         <UserDetailCard
           profilePicture={userDetail.picture.large}
           title={userDetail.name.title}

@@ -4,12 +4,10 @@ import UserDetail from "./UserDetail";
 import axios from "axios";
 function UserList() {
   const [allUserData, updateAllUserData] = useState([]);
-  console.log("1 ", allUserData);
   useEffect(() => {
     const token = axios.get("https://randomuser.me/api/?results=10");
     token.then((response) => {
       updateAllUserData(response.data.results);
-      console.log("2 all user data ", allUserData);
     });
   }, []);
 

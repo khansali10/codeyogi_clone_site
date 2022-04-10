@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 function AssignDetail(props) {
-  let assignmentId = props.assignmentId;
   const [assignmentDetails, updateAssignmentDetail] = useState([]);
   useEffect(() => {
     const wholeData = axios.get(

@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import LectureDetailsCard from "./LectureDetailsCard";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import ListLayout from "./ListLayout";
 
 function LectureContentList() {
   const [lectureData, updateLectureData] = useState([]);
-  console.log("lecturedata ", lectureData);
   useEffect(() => {
     axios
       .get("https://api.codeyogi.io/batches/1/sessions", {
         withCredentials: true,
       })
       .then((response) => {
-        console.log("response.data ", response.data);
         updateLectureData(response.data);
       });
   }, []);
