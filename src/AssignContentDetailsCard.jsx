@@ -1,51 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
+import { Link } from "react-router-dom";
+import { BiLinkExternal } from "react-icons/bi";
 
 function AssignContentDetailsCard(params) {
-  const [
-    showYourSubmissionButton,
-    // updateShowYourSubmissionButton
-  ] = React.useState(false);
-
+  const { id, title, due_date, created_at, submissions } = params.pass;
+  const [showSubmissionButton, updateShowSubmissionButton] = useState(true);
   let submitButton;
-  let submitted;
+  let submitted = "Re-Submit";
   let msg;
+  let submission_link;
 
-  if (params.submited) {
-    submitButton = "re-submit";
-    submitted = <span className="text-green-500">Submitted</span>;
-    msg = "(Submission will count as late now)";
+  if (submissions.length === 0) {
+    submitted = "submit";
   } else {
-    submitButton = "submit";
-    submitted = <span className="text-red-500">Not-submitted</span>;
+    submission_link = (submissions.length - 1).submission_link;
   }
-
   return (
     <>
-      <div className="w-full px-4 py-2 bg-white rounded-md shadow-md mb-4">
-        <div className="flex justify-between items-center ">
-          <div className="flex flex-col ">
-            <div className="font-semibold">
-              <span>#</span>
-              {params.id}
-              <span className="ml-2">{params.assignmentTitle}</span>
+      <div className="w-full px-12 py-2 bg-white rounded-md shadow-md mb-4">
+        <Link to={`/assignment/${id}/assigndetail`}>
+          <div className="flex justify-between items-center ">
+            <div className="flex flex-col ">
+              <div className="font-semibold">
+                <span>#</span>
+                {id}
+                <span className="ml-2">{title}</span>
+              </div>
+              <span className="mt-2 text-stale-100">Due Date: {due_date}</span>
             </div>
-            <span className="mt-2 text-stale-500">
-              Due Date: {params.dueDate}
-            </span>
-            <span className="text-red-500 text-sm">{msg}</span>
           </div>
-          <span className="text-green-500">{submitted}</span>
-        </div>
+        </Link>
         <div className="bg-white mt-4 flex justify-center items-center divide-x">
-          <button className="w-full p-4 flex justify-center items-center text-green-500 bg-white">
-            <TiTick /> {submitButton}
+          <button className="w-full p-4 flex justify-center items-center text-green-500 font-semibold bg-white">
+            <TiTick /> {submitted}
           </button>
-          {showYourSubmissionButton && (
-            <button className="w-full p-4 ">{submitButton}</button>
-          )}
         </div>
+        {showSubmissionButton && (
+          <a
+            href={submission_link}
+            className="w-full p-4 font-semibold text-indigo-500  text-center"
+          >
+            <button className="w-full">
+              <BiLinkExternal className="w-6 h-6 mr-2 inline" />
+              Show Your Submission
+            </button>
+          </a>
+        )}
       </div>
     </>
   );

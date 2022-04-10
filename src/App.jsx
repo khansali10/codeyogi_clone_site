@@ -18,8 +18,8 @@ function App() {
             <Route path="/" element={<LecturePage />} />
             <Route path="/assignment" element={<AssignmentPage />} />
             <Route
-              path="/assignment/:id/assigndetail  "
-              element={<AssignDetail />}
+              path="/assignment/:id/assigndetail"
+              element={<AssignDetail assignmentTitle="number 5" />}
             />
             <Route path="/lecture" element={<LecturePage />} />
             <Route path="/user" element={<UserPage />} />

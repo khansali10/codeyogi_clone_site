@@ -1,34 +1,32 @@
 import React from "react";
-import { BiLinkExternal } from "react-icons/bi";
-function LectureDetailsCard(params) {
+import ReactMarkdown from "react-markdown";
+function LectureDetailsCard(props) {
+  const { id, topic, start_time, end_time } = props.pass;
   return (
     <>
-      <div className=" px-4 py-2 bg-white rounded-md shadow-md w-full">
-        <div className="flex justify-between items-center ">
-          <div className="flex flex-col grow rounded-md">
+      <div className="w-full px-4 py-2 bg-white rounded-md shadow-md mb-4">
+        <div className="flex-col justify-between items-center ">
+          <div className="flex items-center">
             <div className="font-semibold">
-              <span>Lecture</span>
-              <span className="ml-2">#{params.id}</span>
-              <span className="text-slate-500 ml-3">({params.date})</span>
+              <span className="mr-2">Lecture</span>
+              <span>#{id}</span>
             </div>
-            <span className="text-slate-400 text-sm">
-              Duration: {params.duration}
-            </span>
-            <div className="font-semibold text-sm p-5 mx-2 mt-2 ">
-              <ul className="list-disc">
-                <li>{params.lectureTopics}</li>
+            <span className="ml-2 text-stale-500">Date: ({start_time})</span>
+          </div>
+          <div className="mt-2">Duration: {end_time}</div>
+          <div>
+            <span className="font-semibold mt-3 ">
+              <ul className="list-decimal">
+                <ReactMarkdown>{topic}</ReactMarkdown>
               </ul>
-            </div>
-            <div className="">
-              <a href="https://google.com" className="">
-                <span className="flex items-center justify-center p-3 text-md font-semibold text-slate-500">
-                  <BiLinkExternal className="w-6 h-6 mr-2" />
-                  Watch/Download Recording
-                </span>
-              </a>
-            </div>
+            </span>
           </div>
         </div>
+        {/* <div>
+          <a href={recording_url} className="p-5 w-full bg-red-300">
+            Watch/Download Recording
+          </a>
+        </div> */}
       </div>
     </>
   );

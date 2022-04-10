@@ -1,52 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LectureDetailsCard from "./LectureDetailsCard";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import ListLayout from "./ListLayout";
 
 function LectureContentList() {
-  const lectureData = [
-    {
-      topic: "Responsive Design",
-      id: 5,
-      date: "Wed 24 Mar 2022",
-      duration: "3hr",
-    },
-    {
-      topic: "CSS Position and Units",
-      id: 4,
-      date: "Mon 21 Mar 2022",
-      duration: "3hr",
-    },
-    {
-      topic: "Tailwind CSS",
-      id: 3,
-      date: "Sat 19 Mar 2022",
-      duration: "3hr",
-    },
-    {
-      topic: "Utility Classes",
-      id: 2,
-      date: "Thus 17 Mar 2022",
-      duration: "3hr",
-    },
-    {
-      topic: "Basic HTML CSS",
-      id: 1,
-      date: "Wed 16 Mar 2022",
-      duration: "3hr",
-    },
-  ];
+  const [lectureData, updateLectureData] = useState([]);
+  console.log("lecturedata ", lectureData);
+  useEffect(() => {
+    axios
+      .get("https://api.codeyogi.io/batches/1/sessions", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log("response.data ", response.data);
+        updateLectureData(response.data);
+      });
+  }, []);
   return (
     <>
       <ListLayout>
         {lectureData.map((item) => (
-          <LectureDetailsCard
-            lectureTopics={item.topic}
-            id={item.id}
-            date={item.date}
-            duration={item.duration}
-            key={item.id}
-          ></LectureDetailsCard>
+          <LectureDetailsCard pass={item} key={item.id}></LectureDetailsCard>
         ))}
       </ListLayout>
     </>

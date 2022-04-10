@@ -17,7 +17,7 @@ function UserList() {
     <>
       <ListLayout>
         {allUserData.map((item) => (
-          <UserDetail userDetail={item} key={item.id.value} />
+          <UserDetail userDetail={item} key={item.login.username} />
         ))}
       </ListLayout>
     </>
