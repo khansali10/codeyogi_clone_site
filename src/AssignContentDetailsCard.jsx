@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BiLinkExternal } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
+import PopupCardSubmit from "./PopupCardSubmit";
 
 let isSubmitted;
 let isSubmittedClass = "text-red-500 font-semibold";
@@ -56,37 +57,16 @@ function AssignContentDetailsCard(params) {
             <BsCheckCircle className="w-6 h-6 mr-2 inline" /> {submitButton}
           </button>
           {showSubmissionButton && (
-            <div className="text-center text-indigo-500 font-semibold mt-2 w-full bg-red-200 flex items-stratch">
-              <a
-                href={href}
-                target="_blank"
-                className="p-4 w-full bg-green-200"
-              >
+            <div className="text-center text-indigo-500 font-semibold mt-2 w-full bg-red-200 flex">
+              <a href={href} target="_blank" className="p-4 w-full bg-white">
                 <BiLinkExternal className="inline w-6 h-6 mr-2" />
                 Show Your Submission
               </a>
             </div>
           )}
-          {/* {showSubmissionButton && (
-            <a
-              href={submissions.submission_link}
-              className="w-full p-4 font-semibold text-indigo-500  text-center"
-            >
-              <BiLinkExternal className="w-6 h-6 mr-2 inline" /> Show Your
-              Submission
-            </a>
-          )} */}
         </div>
       </div>
-      <div>
-        {submitPopup && (
-          <div className="min-h-screen w-full flex justify-center items-center fixed top-0 left-0 p-12 bg-indigo-500 opacity-50">
-            <div className=" w-3/4 h-60 bg-white opacity-100 rounded-md">
-              <span>it is popup</span>
-            </div>
-          </div>
-        )}
-      </div>
+      <div>{submitPopup && <PopupCardSubmit />}</div>
     </>
   );
 }
