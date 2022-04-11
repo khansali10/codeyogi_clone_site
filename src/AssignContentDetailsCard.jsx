@@ -3,6 +3,7 @@ import { BiLinkExternal } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
 import PopupCardSubmit from "./PopupCardSubmit";
+import { DateTime } from "luxon";
 
 let isSubmitted;
 let isSubmittedClass = "text-red-500 font-semibold";
@@ -32,6 +33,13 @@ function AssignContentDetailsCard(params) {
       changeSubmitButton("Re-Submit");
     }
   }, []);
+
+  const createdDate = DateTime.fromISO(created_at);
+  const createdAt = createdDate.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);
+
+  const date = DateTime.fromISO(due_date);
+  const dueDate = date.toLocaleString(DateTime.DATETIME_MED);
+
   return (
     <>
       <div className="w-full px-3 py-2 bg-white rounded-md shadow-lg mb-4">
@@ -42,9 +50,9 @@ function AssignContentDetailsCard(params) {
                 <span>#</span>
                 {id}
                 <span className="ml-1">{title}</span>
-                <span className="text-slate-500 ml-3">({created_at})</span>
+                <span className="text-slate-500 ml-3">({createdAt})</span>
               </div>
-              <span className="mt-2 text-stale-300">Due Date: {due_date}</span>
+              <span className="mt-2 text-stale-300">Due Date: {dueDate}</span>
             </div>
             <div>{isSubmitted}</div>
           </div>
