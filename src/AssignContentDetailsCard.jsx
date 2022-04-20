@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { BiLinkExternal } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
 import PopupCardSubmit from "./PopupCardSubmit";
 import { DateTime } from "luxon";
-
-let isSubmitted;
-let isSubmittedClass = "text-red-500 font-semibold";
+import AssignDetail from "./AssignDetail";
 
 function AssignContentDetailsCard(params) {
+  //PoPUP view
   const { id, title, due_date, created_at, submissions } = params.pass;
-  const [showSubmissionButton, updateShowSubmissionButton] = useState(true);
-  const [submitPopup, updateSubmitPopup] = useState(false);
+  const [showSubmissionButton, updateShowSubmissionButton] = useState(false);
   const [submitButton, changeSubmitButton] = useState("Submit");
+  const [submitPopup, updateSubmitPopup] = useState(false);
   const [isSubmitted, changeIsSubmitted] = useState(
     <span className="text-red-600 font-semibold">Not-Submitted</span>
   );
+
   const [href, updateHref] = useState("");
   useEffect(() => {
     const href = submissions.map((item) => {
@@ -34,9 +34,9 @@ function AssignContentDetailsCard(params) {
     }
   }, []);
 
+  //Date and time format
   const createdDate = DateTime.fromISO(created_at);
   const createdAt = createdDate.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);
-
   const date = DateTime.fromISO(due_date);
   const dueDate = date.toLocaleString(DateTime.DATETIME_MED);
 
@@ -74,7 +74,14 @@ function AssignContentDetailsCard(params) {
           )}
         </div>
       </div>
-      <div>{submitPopup && <PopupCardSubmit />}</div>
+      <div>
+        {submitPopup && (
+          <PopupCardSubmit
+          // submitPopup={submitPopup}
+          // updateSubmitPopup={updateSubmitPopup}
+          />
+        )}
+      </div>
     </>
   );
 }

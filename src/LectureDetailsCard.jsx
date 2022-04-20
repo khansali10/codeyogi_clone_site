@@ -5,13 +5,14 @@ import { DateTime } from "luxon";
 function LectureDetailsCard(props) {
   const { id, topic, start_time, end_time, recording_url, created_at } =
     props.pass;
-  const date1 = new Date(start_time);
-  const date2 = new Date(end_time);
-  const diffTime = Math.abs(date2 - date1);
-  const duration = Duration.fromMillis(150000).toFormat("mm'm' ss's'");
 
-  const createdDate = DateTime.fromISO(created_at);
-  const createdAt = createdDate.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);
+  const createdDate = DateTime.fromISO(created_at).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);
+
+  const start = new Date(start_time);
+  const end = new Date(end_time);
+  const diff = end - start;
+  const ans = new Date(diff).toISOString();
+  const duration = ans.substring(11, 19);
 
   return (
     <>

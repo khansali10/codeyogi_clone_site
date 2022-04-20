@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AssignContentDetailsCard from "./AssignContentDetailsCard";
 import ListLayout from "./ListLayout";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function AssignContentList() {
   const [assignmentData, updateAssignmentData] = useState([]);
   console.log("assignmentData ", assignmentData);
@@ -19,10 +20,11 @@ function AssignContentList() {
     <>
       <ListLayout>
         {assignmentData.map((item) => (
-          <AssignContentDetailsCard
-            key={item.id}
-            pass={item}
-          ></AssignContentDetailsCard>
+          
+            <AssignContentDetailsCard
+              key={item.id}
+              pass={item}
+            ></AssignContentDetailsCard>
         ))}
       </ListLayout>
     </>
